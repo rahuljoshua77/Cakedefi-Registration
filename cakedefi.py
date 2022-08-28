@@ -88,6 +88,7 @@ def register(data):
         except:
             print(f"[*] [{email}] Verification Failed")
             with open('fail.txt','a') as f: f.write(f'{email}|{password_acc}\n')
+            browser.quit()
             
     else:
         print(f"[*] [{email}] {response}")
