@@ -87,6 +87,7 @@ def register(data):
             verification()
         except:
             print(f"[*] [{email}] Verification Failed")
+            with open('fail.txt','a') as f: f.write(f'{email}|{password_acc}\n')
             
     else:
         print(f"[*] [{email}] {response}")
@@ -132,8 +133,11 @@ def verification():
     response = send.put("https://api.cakedefi.com/verify/email/token",json=data,headers=headers)
     if '{"emailVerified":true}' in response.text:
         print(f"[*] [{email}] Verification Success")
+        with open('success.txt','a') as f: f.write(f'{email}|{password_acc}\n')
     else:
         print(f"[*] [{email}] Verification Failed")
+        with open('fail.txt','a') as f: f.write(f'{email}|{password_acc}\n')
+    
     
 if __name__ == '__main__':
     global password_acc
