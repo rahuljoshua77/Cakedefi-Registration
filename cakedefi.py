@@ -65,7 +65,7 @@ def register(data):
 
     data = {
     "email": email,
-    "password": password,
+    "password": password_acc,
     "g-recaptcha-response": token_captcha,
     "promoCode": "",
     "affiliateRefCode": "",
@@ -136,7 +136,10 @@ def verification():
         print(f"[*] [{email}] Verification Failed")
     
 if __name__ == '__main__':
+    global password_acc
+    
     print('[*] Cakedefi Registration')
+    password_acc = input("[*] Password Account: ")
     myfile = open(f"{cwd}\\list.txt","r")
     list_account = myfile.read()
     list_accountsplit = list_account.split("\n")
