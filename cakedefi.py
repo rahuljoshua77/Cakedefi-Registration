@@ -107,6 +107,8 @@ def get_otp():
     xpath_type('//input[@type="password"]',Keys.ENTER)
     print(f'[*] [{email}] Checking mail')
     sleep(5)
+    browser.get('https://mail.google.com/mail/u/0/#inbox')
+    sleep(2)
     xpath_el('(//span[contains(text(),"[Cake] Verify Your Email")])[2]')
     sleep(3)
     your_otp = wait(browser,15).until(EC.presence_of_element_located((By.XPATH, '(//*[@style="padding:10px 25px;word-break:break-word"])[4]'))).text
