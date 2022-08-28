@@ -140,7 +140,7 @@ def verification():
         print(f"[*] [{email}] Verification Failed")
         with open('fail.txt','a') as f: f.write(f'{email}|{password_acc}\n')
     
-    
+    browser.quit()
 if __name__ == '__main__':
     global password_acc
     
