@@ -33,12 +33,11 @@ def register(data):
     global password
     email = data.split("|")[0]
     password = data.split("|")[1]
-    r = requests.get('https://2captcha.com/in.php?key=8390a571d2acafe4c751d7e13336df30&method=userrecaptcha&googlekey=6LcDaLAeAAAAADeKbH94tsCMTFAppm-BCHNN1LAp&pageurl=https://app.cakedefi.com/register')
-    get_id = r.text.split("|")
+    
     get_id = get_id[1]
     while True:
         time.sleep(5)
-        r = requests.get(f'https://2captcha.com/res.php?key=8390a571d2acafe4c751d7e13336df30&action=get&id={get_id}')
+        r = requests.get(f'https://2captcha.com/res.php?key= &action=get&id={get_id}')
 
         if r.text == "CAPCHA_NOT_READY":
             print(f"[*] [{email}] {r.text}!")
